@@ -102,9 +102,9 @@ function handleGetPlaylists(req, res){
   
 }
 
-// app.get('/', (req, res) => {
-//   res.send('Hello, world!');
-// });
+app.get('/', (req, res) => {
+  res.send('Hello, world!');
+});
 
 // function handleAuth (req, res, next) {
 //   let username = req.query.username;
