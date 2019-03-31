@@ -127,7 +127,7 @@ app.get('/', (req, res) => {
 
 // }
 
-app.post('/api/login', authRouter);
+// app.post('/api/login', authRouter);
 
 
 // app.get('/refresh_token', function(req, res) {
