@@ -44,9 +44,7 @@ function handleGetPlaylists(req, res){
   
   const client_id = process.env.CLIENT_ID;
   const client_secret = process.env.CLIENT_SECRET;
-  // const client_id = 'ede709c1f9a04d62a26b5773d1748615';
-  // const client_secret = '6dbb876c33d4f33809c7e6e448130d0';
-
+  
   
   
   let authOptions = {
