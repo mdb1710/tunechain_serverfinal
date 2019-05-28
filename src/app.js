@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
-const {CLIENT_ORIGIN} = require('./config');
+const { CLIENT_ORIGIN, CLIENT_ID, CLIENT_SECRET} = require('./config');
 const request = require('request');
 const authRouter = require('./auth/auth-router');
 
@@ -46,6 +46,8 @@ function handleGetPlaylists(req, res){
   
   const client_id = process.env.CLIENT_ID;
   const client_secret = process.env.CLIENT_SECRET;
+  // const client_id = 'ede709c1f9a04d62a26b5773d1748615';
+  // const client_secret = '6dbb876c33d4f33809c7e6e448130d0';
 
   
   
