@@ -5,9 +5,9 @@ const jwt = require('jsonwebtoken');
 const config = require('../config');
 
 const AuthService = {
-  getUserWithUserName(db, user_name) {
-    return db('moodlist_users')
-      .where({ user_name })
+  getUserWithUserName(db, username) {
+    return db('user')
+      .where({ username })
       .first();
   },
   comparePasswords(password, hash) {
@@ -16,6 +16,7 @@ const AuthService = {
   createJwt(subject, payload) {
     return jwt.sign(payload, config.JWT_SECRET, {
       subject,
+      expiresIn: config.JWT_EXPIRY,
       algorithm: 'HS256',
     });
   },
@@ -24,12 +25,6 @@ const AuthService = {
       algorithms: ['HS256'],
     });
   },
-  parseBasicToken(token) {
-    return Buffer
-      .from(token, 'base64')
-      .toString()
-      .split(':');
-  },    
 };
 
 module.exports = AuthService;

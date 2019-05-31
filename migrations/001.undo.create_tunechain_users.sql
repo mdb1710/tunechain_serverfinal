@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS moodlist_users;
+DROP TABLE IF EXISTS users;
