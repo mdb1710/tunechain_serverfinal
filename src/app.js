@@ -103,6 +103,9 @@ function handleGetPlaylists(req, res){
 app.get('/', (req, res) => {
   res.send('Hello, world!');
 });
+app.use('/api/auth', authRouter);
+
+app.use('/api/user', userRouter);
 
 // function handleAuth (req, res, next) {
 //   let username = req.query.username;
