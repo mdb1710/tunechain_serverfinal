@@ -30,12 +30,14 @@
     "mocha": "^6.1.4",
     "morgan": "^1.9.1",
     "node-fetch": "^2.3.0",
+    "pg": "^7.11.0",
     "postgrator": "^3.10.1",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
   },
   "devDependencies": {
     "nodemon": "^1.18.10",
+    "postgrator-cli": "^3.1.0",
     "supertest": "^4.0.2"
   }
 }
