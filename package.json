@@ -8,6 +8,7 @@
     "predeploy": "npm audit",
     "deploy": "git push heroku master",
     "test": "mocha --require test/setup.js",
+    "migrate": "postgrator --config postgrator-config.js",
     "dev": "nodemon src/server.js"
   },
   "keywords": [],
@@ -29,6 +30,7 @@
     "mocha": "^6.1.4",
     "morgan": "^1.9.1",
     "node-fetch": "^2.3.0",
+    "postgrator": "^3.10.1",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
   },
