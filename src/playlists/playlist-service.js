@@ -4,9 +4,10 @@ const config = require('../config');
 
 const PlaylistService = {
   getSavedSearches (db) {
-    return db
-      .from('saved_searches')
-      .first();
+    return db 
+      .select('*')
+      
+      .from('saved_searches');
 
   },
 
