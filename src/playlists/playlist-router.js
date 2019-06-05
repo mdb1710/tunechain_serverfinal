@@ -18,14 +18,14 @@ const serializeSavedPlaylists = search => ({
 });
 
 playlistRouter
-  .get('/', (req, res, next) => {
+  .get('/', async (req, res, next) => {
     try {
-      const list = PlaylistService.getSavedSearches(
+      const list = await PlaylistService.getSavedSearches(
         req.app.get('db')
       );
 
       res.json(list)
-        .next();
+        .end();
 
        
     } catch (error){

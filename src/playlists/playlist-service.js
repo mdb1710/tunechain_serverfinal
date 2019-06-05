@@ -7,7 +7,10 @@ const PlaylistService = {
     return db 
       .select('*')
       
-      .from('saved_searches');
+      .from('saved_searches')
+      .then((results) => results);
+      
+      
 
   },
 
