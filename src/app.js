@@ -11,8 +11,9 @@ const request = require('request');
 const playlistRouter = require('./playlists/playlist-router');
 
 
+
 const app = express();
-const jsonParser = express.json();
+const bodyParser = require('body-parser');
 
 const morganOption = (NODE_ENV === 'production')
   ? 'tiny'
@@ -23,7 +24,11 @@ app.use(
   cors()
 );
 app.use(helmet());
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+app.use(bodyParser.json());
 app.use('/api/saved', playlistRouter);
+
 
 app.use(function errorHandler(error, req, res, next) {
   let response;

@@ -7,8 +7,8 @@ const PlaylistService = require('./playlist-service');
 
 
 const playlistRouter = express.Router();
-const jsonParser = express.json();
-const bodyParser = express.json();
+const jsonBodyParser = express.json()
+const bodyParser = require('body-parser')
 
 const serializeSavedPlaylists = search => ({
   id: search.id,
@@ -18,7 +18,8 @@ const serializeSavedPlaylists = search => ({
 });
 
 playlistRouter
-  .get('/', async (req, res, next) => {
+  .route('/')
+  .get(async (req, res, next) => {
     try {
       const list = await PlaylistService.getSavedSearches(
         req.app.get('db')
@@ -33,8 +34,10 @@ playlistRouter
     }
   })
 
-  .post('/', bodyParser, (req, res, next) => {
+  .post(jsonBodyParser, async (req, res, next) => {
     const { mood, genre } = req.body;
+    console.log(req.headers, req.body);
+
 
     const newSearch = {
       user_mood: mood,
@@ -42,13 +45,20 @@ playlistRouter
     };
 
     console.log(newSearch);
+    console.log(req.body.mood, req.body.genre);
+    try {
+      const searchList = await PlaylistService.insertSavedSearch(
+        req.app.get('db'),
+        newSearch
+      );
 
-    const searchList = PlaylistService.insertSavedSearch(
-      req.app.get(db),
-      newSearch
-    );
+      res.status(201).json(serializeSavedPlaylists(searchList));
+    } catch (error) {
+      next(error);
+    }
+    
 
-    res.status(201).json(searchList);
+    
 
   });
 

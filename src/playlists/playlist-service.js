@@ -19,7 +19,9 @@ const PlaylistService = {
       .insert(savedSearch)
       .into('saved_searches')
       .returning('*')
-      .then(([savedSearch]) => savedSearch);
+      .then(rows => {
+        return rows[0];
+      });
   }
 
 
