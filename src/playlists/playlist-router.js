@@ -44,7 +44,7 @@ playlistRouter
     console.log(newSearch);
 
     const searchList = PlaylistService.insertSavedSearch(
-      req.app.get(db),
+      req.app.get('db'),
       newSearch
     );
 
