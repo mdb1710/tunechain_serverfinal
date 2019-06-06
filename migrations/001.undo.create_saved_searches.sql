@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS saved_playlists;
+DROP TABLE IF EXISTS saved_searches;
