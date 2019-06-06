@@ -1,8 +1,6 @@
-INSERT INTO moodlist_users (user_name, password)
+INSERT INTO saved_searches (id, user_mood, user_genre)
 VALUES
-  ('mdb1710', 'password'),
-  ('dawson_leery',  'director'),
-  ('joey_leery', 'writer'),
-  ('pacey_witter', 'chef'),
-  ('jen_lilly', 'cheerleader');
+  (1, 'sad', 'soul'),
+  (2, 'happy',  'rock');
   
+ ALTER SEQUENCE IF EXISTS saved_searches_id_seq RESTART WITH 3; 
