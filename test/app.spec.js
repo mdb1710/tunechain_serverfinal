@@ -25,7 +25,17 @@ describe('App', () => {
       .expect('Content-type', /json/)
       .then(res => {
         expect(res.body).to.be.an('array');
-        expect(res.body).to.have.all.keys('lat', 'lon');
+        
       });
+  });
+
+  it('GET /api/saved responds with array from db', () => {
+    return supertest(app)
+     .get('/api/saved')
+     .expect(200)
+     .expect('Content-type', /json/)
+     .then(res => {
+       expect(res.body).to.be.an('array');
+     });
   });
 });

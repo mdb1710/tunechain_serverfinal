@@ -1,21 +1,61 @@
-Express Boilerplate!
-This is a boilerplate project used for starting new projects!
+# TuneChain 
 
-Set up
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+Michael Bonner, Primary Developer
 
-Clone this repository to your local machine git clone BOILERPLATE-URL NEW-PROJECTS-NAME
-cd into the cloned repository
-Make a fresh start of the git history for this project with rm -rf .git && git init
-Install the node dependencies npm install
-Move the example Environment file to .env that will be ignored by git and read by the express server mv example.env .env
-Edit the contents of the package.json to use NEW-PROJECT-NAME instead of "name": "express-boilerplate",
-Scripts
-Start the application npm start
+[LiveApp](https://tunechain-app.mdb1710.now.sh)
 
-Start nodemon for the application npm run dev
+[Client Repo](https://github.com/mdb1710/tunechainclient_final)
 
-Run the tests npm test
+## Summary
 
-Deploying
-When your new project is ready for deployment, add a new Heroku application with heroku create. This will make a new git remote called "heroku" and you can then npm run deploy which will push to this remote's master branch.
+You have Spotify and you're looking for the music to match your current mood. Now you can chain your music to your mood with Tunechain.  With Tunechain you can search for used curated playlist to match the mood and genre you desire.  You can even save your searches.  This is the back-end api to perform those searches.
+
+## Database
+
+Please refer to the seed tables.  This database will help you with requests for saved searches
+1.  Create a database called saved_playlists
+2.  Create a role to own the db called tunechainer
+3.  Run npm run migrate to create needed tables
+4.  Use seed file in seeds folders for starter data
+
+## API
+
+GET /api/search
+
+The Spotify Web API uses the request library for the mood and genre searches.  Because all Spotify request require a web token for authorization, we set up a POST request to receive/refresh that token for each search. Once the token is received a get request with the search query is immediately made the search endpoint to retrieve the data from Spotify.  This data is then sent to the client.
+
+POST /api/saved
+
+This request send the mood and genre you just searched to the database.  
+
+GET /api/saved
+
+This request will send to the client all of the saved searches the used made at that point from the database.
+
+
+## Technology
+
+
+
+For The Back End
+- Spotify Web API
+- NodeJs
+- ExpressJs
+- Request
+- Mocha/Chai
+- PostgreSQL
+- Supertest
+
+
+Deployed via Now
+
+
+
+## Setup
+
+To setup the application
+
+1. Fork and clone the project to your machine.
+2. `npm install`.
+
+
