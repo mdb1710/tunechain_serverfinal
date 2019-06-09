@@ -41,7 +41,7 @@ playlistRouter
       user_genre: genre
     };
 
-    console.log(newSearch);
+    
 
     const searchList = PlaylistService.insertSavedSearch(
       req.app.get('db'),
